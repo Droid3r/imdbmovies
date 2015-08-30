@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "movieApp.example.com.movieApp"
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.0.0'
+
+    //Using a mirror of Volley as dependency, as Volley is not added to maven
+    //Alternate way to is to add the project source code as a library module, which is cumbersome
+    compile 'com.mcxiaoke.volley:library:1.0.18'
+
+    //Picasso lib for image load
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    //OKHTTP client for Picasso
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+
+    //Gson for JSON to model mapping
+    compile 'com.google.code.gson:gson:2.3.1'
+
+    //recycler and card view
+    compile 'com.android.support:recyclerview-v7:+'
+    compile 'com.android.support:cardview-v7:21.0.+'
+
+
+}
